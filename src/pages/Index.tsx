@@ -1,7 +1,7 @@
-import OnboardingScreen from "@/components/OnboardingScreen";
+import WaitlistScreen from "@/components/WaitlistScreen";
 
 const Index = () => {
-  return <OnboardingScreen />;
+  return <WaitlistScreen />;
 };
 
 export default Index;

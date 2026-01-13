@@ -42,52 +42,52 @@ const WaitlistLanding = () => {
   const features = [
     {
       icon: MapPin,
-      title: "Find Nearby",
-      description: "Discover top-rated barbers and salons in your area instantly"
+      title: "Trova Vicino",
+      description: "Scopri i migliori barbieri e saloni nella tua zona all'istante"
     },
     {
       icon: Calendar,
-      title: "Book Instantly",
-      description: "Schedule appointments in seconds, no calls needed"
+      title: "Prenota Subito",
+      description: "Prenota appuntamenti in pochi secondi, senza telefonate"
     },
     {
       icon: Clock,
-      title: "Save Time",
-      description: "No more waiting in queues, arrive at your scheduled time"
+      title: "Risparmia Tempo",
+      description: "Niente più code, arrivi all'orario prenotato"
     },
     {
       icon: Star,
-      title: "Verified Reviews",
-      description: "Real ratings from real customers to help you choose"
+      title: "Recensioni Verificate",
+      description: "Valutazioni reali da clienti reali per aiutarti a scegliere"
     }
   ];
 
   const roadmapItems = [
     {
       quarter: "Q1 2026",
-      title: "Private Beta Launch",
-      description: "Early access for waitlist members in select cities",
+      title: "Lancio Beta Privata",
+      description: "Accesso anticipato per i membri della lista d'attesa nelle città selezionate",
       icon: Rocket,
       status: "upcoming"
     },
     {
       quarter: "Q2 2026",
-      title: "Public Launch",
-      description: "Open access for clients and professionals nationwide",
+      title: "Lancio Pubblico",
+      description: "Accesso aperto per clienti e professionisti in tutta Italia",
       icon: Users,
       status: "planned"
     },
     {
       quarter: "Q3 2026",
-      title: "Partner Expansion",
-      description: "Onboarding salons, barbershops, and beauty professionals",
+      title: "Espansione Partner",
+      description: "Integrazione di saloni, barbieri e professionisti della bellezza",
       icon: Building2,
       status: "planned"
     },
     {
       quarter: "Q4 2026",
-      title: "Premium Features",
-      description: "Advanced booking, loyalty rewards, and AI recommendations",
+      title: "Funzionalità Premium",
+      description: "Prenotazioni avanzate, premi fedeltà e raccomandazioni AI",
       icon: Sparkles,
       status: "planned"
     }
@@ -105,10 +105,10 @@ const WaitlistLanding = () => {
             <CheckCircle className="w-10 h-10 text-foreground" />
           </div>
           <h1 className="text-2xl font-semibold text-foreground mb-3">
-            You're on the list!
+            Sei nella lista!
           </h1>
           <p className="text-muted-foreground mb-8">
-            We'll notify you as soon as Glamro launches in {formData.city}.
+            Ti avviseremo non appena Glamro sarà disponibile a {formData.city}.
           </p>
           <GlamroLogo className="w-16 h-16 text-muted-foreground opacity-50" />
         </div>
@@ -124,23 +124,23 @@ const WaitlistLanding = () => {
           <GlamroLogo className="w-24 h-24 text-foreground mb-8 animate-fade-in" />
           
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight animate-fade-in">
-            Your Perfect Cut,<br />One Tap Away
+            Il Tuo Taglio Perfetto,<br />Ad Un Solo Tap
           </h1>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-md animate-fade-in">
-            The smartest way to book barbers and hair salons. 
-            Find, book, and pay — all from your phone.
+            Il modo più intelligente per prenotare barbieri e parrucchieri.
+            Trova, prenota e paga — tutto dal tuo telefono.
           </p>
 
           <button
             onClick={scrollToForm}
             className="bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-lg btn-press text-lg animate-fade-in"
           >
-            Join the Waitlist
+            Unisciti alla lista d'attesa
           </button>
 
           <p className="text-muted-foreground text-sm mt-4 animate-fade-in">
-            Be the first to know when we launch
+            Sii il primo a sapere quando lanceremo
           </p>
         </div>
 
@@ -157,10 +157,10 @@ const WaitlistLanding = () => {
       <section className="px-6 py-20 bg-card">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-foreground text-center mb-4">
-            Why Glamro?
+            Perché Glamro?
           </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-md mx-auto">
-            We're building the future of grooming appointments
+            Stiamo costruendo il futuro degli appuntamenti di bellezza
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -194,10 +194,10 @@ const WaitlistLanding = () => {
               Roadmap
             </span>
             <h2 className="text-3xl font-bold text-foreground mb-3">
-              What's Coming in 2026
+              Cosa arriverà nel 2026
             </h2>
             <p className="text-muted-foreground max-w-md mx-auto">
-              Join us on our journey to revolutionize the grooming industry
+              Unisciti a noi nel rivoluzionare l'industria della bellezza
             </p>
           </div>
 
@@ -247,10 +247,10 @@ const WaitlistLanding = () => {
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-foreground mb-3">
-              Get Early Access
+              Ottieni l'Accesso Anticipato
             </h2>
             <p className="text-muted-foreground">
-              Be the first to experience Glamro in your city
+              Sii il primo a provare Glamro nella tua città
             </p>
           </div>
 
@@ -258,11 +258,11 @@ const WaitlistLanding = () => {
             {/* Name Input */}
             <div>
               <label className="block text-muted-foreground text-sm mb-2">
-                Full Name
+                Nome Completo
               </label>
               <input
                 type="text"
-                placeholder="Your name"
+                placeholder="Il tuo nome"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full bg-muted text-foreground placeholder:text-muted-foreground rounded-lg px-4 py-3.5 outline-none focus:ring-2 focus:ring-foreground/20"
@@ -272,13 +272,13 @@ const WaitlistLanding = () => {
             {/* Email Input */}
             <div>
               <label className="block text-muted-foreground text-sm mb-2">
-                Email Address
+                Indirizzo Email
               </label>
               <div className="flex items-center bg-muted rounded-lg px-4 py-3.5">
                 <Mail className="w-5 h-5 text-muted-foreground mr-3" />
                 <input
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder="tua@email.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
@@ -289,14 +289,14 @@ const WaitlistLanding = () => {
             {/* Phone Input */}
             <div>
               <label className="block text-muted-foreground text-sm mb-2">
-                Mobile Number
+                Numero di Cellulare
               </label>
               <div className="flex items-center bg-muted rounded-lg px-4 py-3.5">
-                <span className="text-lg mr-2">🇮🇳</span>
-                <span className="text-foreground font-medium mr-3">+91</span>
+                <span className="text-lg mr-2">🇮🇹</span>
+                <span className="text-foreground font-medium mr-3">+39</span>
                 <input
                   type="tel"
-                  placeholder="Mobile number"
+                  placeholder="Numero di cellulare"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
@@ -307,11 +307,11 @@ const WaitlistLanding = () => {
             {/* City Input */}
             <div>
               <label className="block text-muted-foreground text-sm mb-2">
-                City
+                Città
               </label>
               <input
                 type="text"
-                placeholder="Your city"
+                placeholder="La tua città"
                 value={formData.city}
                 onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                 className="w-full bg-muted text-foreground placeholder:text-muted-foreground rounded-lg px-4 py-3.5 outline-none focus:ring-2 focus:ring-foreground/20"
@@ -321,19 +321,19 @@ const WaitlistLanding = () => {
             {/* User Type Select */}
             <div>
               <label className="block text-muted-foreground text-sm mb-2">
-                You are a...
+                Sei un...
               </label>
               <Select
                 value={formData.userType}
                 onValueChange={(value) => setFormData({ ...formData, userType: value })}
               >
                 <SelectTrigger className="w-full bg-muted border-0 text-foreground h-12 rounded-lg focus:ring-2 focus:ring-foreground/20">
-                  <SelectValue placeholder="Select your profile" />
+                  <SelectValue placeholder="Seleziona il tuo profilo" />
                 </SelectTrigger>
                 <SelectContent className="bg-card border-border">
-                  <SelectItem value="client">Client</SelectItem>
-                  <SelectItem value="salon">Salon</SelectItem>
-                  <SelectItem value="independent">Indépendant</SelectItem>
+                  <SelectItem value="client">Cliente</SelectItem>
+                  <SelectItem value="independent">Indipendente</SelectItem>
+                  <SelectItem value="salon">Salone</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -344,12 +344,12 @@ const WaitlistLanding = () => {
               disabled={!formData.name || !formData.email || !formData.phone || !formData.city || !formData.userType}
               className="w-full bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg btn-press disabled:opacity-50 disabled:cursor-not-allowed mt-6"
             >
-              Join Waitlist
+              Unisciti alla lista d'attesa
             </button>
           </form>
 
           <p className="text-muted-foreground text-xs text-center mt-6 leading-relaxed">
-            By signing up, you agree to receive updates about Glamro via calls, WhatsApp, or SMS.
+            Iscrivendoti, accetti di ricevere aggiornamenti su Glamro tramite chiamate, WhatsApp, SMS e email.
           </p>
         </div>
       </section>
@@ -359,7 +359,7 @@ const WaitlistLanding = () => {
         <div className="max-w-lg mx-auto flex flex-col items-center">
           <GlamroLogo className="w-10 h-10 text-foreground mb-4" />
           <p className="text-muted-foreground text-sm">
-            © 2026 Glamro. All rights reserved.
+            © 2026 Glamro. Tutti i diritti riservati.
           </p>
         </div>
       </footer>

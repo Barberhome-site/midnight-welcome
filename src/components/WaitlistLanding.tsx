@@ -140,14 +140,14 @@ const WaitlistLanding = () => {
           </button>
 
           <p className="text-muted-foreground text-sm mt-4 animate-fade-in">
-            Sii il primo a sapere quando lanceremo
+            Diventa il primo a sapere quando lanceremo
           </p>
         </div>
 
         {/* Scroll indicator */}
         <button 
           onClick={scrollToForm}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground btn-press"
+          className="absolute bottom-8 text-muted-foreground btn-press hover:animate-bounce"
         >
           <ChevronDown className="w-8 h-8" />
         </button>
@@ -250,7 +250,7 @@ const WaitlistLanding = () => {
               Ottieni l'Accesso Anticipato
             </h2>
             <p className="text-muted-foreground">
-              Sii il primo a provare Glamro nella tua città
+              Diventa il primo a provare Glamro nella tua città
             </p>
           </div>
 

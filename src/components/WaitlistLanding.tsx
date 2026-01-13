@@ -147,7 +147,7 @@ const WaitlistLanding = () => {
         {/* Scroll indicator */}
         <button 
           onClick={scrollToForm}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce btn-press"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground btn-press"
         >
           <ChevronDown className="w-8 h-8" />
         </button>

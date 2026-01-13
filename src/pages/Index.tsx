@@ -1,7 +1,7 @@
-import WaitlistScreen from "@/components/WaitlistScreen";
+import WaitlistLanding from "@/components/WaitlistLanding";
 
 const Index = () => {
-  return <WaitlistScreen />;
+  return <WaitlistLanding />;
 };
 
 export default Index;

@@ -3,25 +3,37 @@ import {
   MapPin, 
   Clock, 
   Star, 
-  Scissors, 
   Calendar,
   CheckCircle,
-  ExternalLink,
-  ChevronDown
+  ChevronDown,
+  Rocket,
+  Users,
+  Building2,
+  Sparkles,
+  Mail
 } from "lucide-react";
 import GlamroLogo from "./icons/GlamroLogo";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const WaitlistLanding = () => {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     phone: "",
-    city: ""
+    city: "",
+    userType: ""
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.phone && formData.city) {
+    if (formData.name && formData.email && formData.phone && formData.city && formData.userType) {
       console.log("Waitlist signup:", formData);
       setIsSubmitted(true);
     }
@@ -47,6 +59,37 @@ const WaitlistLanding = () => {
       icon: Star,
       title: "Verified Reviews",
       description: "Real ratings from real customers to help you choose"
+    }
+  ];
+
+  const roadmapItems = [
+    {
+      quarter: "Q1 2026",
+      title: "Private Beta Launch",
+      description: "Early access for waitlist members in select cities",
+      icon: Rocket,
+      status: "upcoming"
+    },
+    {
+      quarter: "Q2 2026",
+      title: "Public Launch",
+      description: "Open access for clients and professionals nationwide",
+      icon: Users,
+      status: "planned"
+    },
+    {
+      quarter: "Q3 2026",
+      title: "Partner Expansion",
+      description: "Onboarding salons, barbershops, and beauty professionals",
+      icon: Building2,
+      status: "planned"
+    },
+    {
+      quarter: "Q4 2026",
+      title: "Premium Features",
+      description: "Advanced booking, loyalty rewards, and AI recommendations",
+      icon: Sparkles,
+      status: "planned"
     }
   ];
 
@@ -143,23 +186,59 @@ const WaitlistLanding = () => {
         </div>
       </section>
 
-      {/* For Professionals Banner */}
-      <section className="px-6 py-16 bg-background">
-        <div className="max-w-lg mx-auto text-center">
-          <Scissors className="w-12 h-12 text-foreground mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-foreground mb-3">
-            Are you a barber or salon owner?
-          </h2>
-          <p className="text-muted-foreground mb-6">
-            Grow your business with Glamro. Get more clients, manage bookings effortlessly, and get paid instantly.
-          </p>
-          <a 
-            href="#"
-            className="inline-flex items-center gap-2 text-foreground underline btn-press"
-          >
-            Partner with us
-            <ExternalLink className="w-4 h-4" />
-          </a>
+      {/* 2026 Roadmap Section */}
+      <section className="px-6 py-20 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+              Roadmap
+            </span>
+            <h2 className="text-3xl font-bold text-foreground mb-3">
+              What's Coming in 2026
+            </h2>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Join us on our journey to revolutionize the grooming industry
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 hidden md:block" />
+            
+            <div className="space-y-8 md:space-y-0">
+              {roadmapItems.map((item, index) => (
+                <div 
+                  key={index}
+                  className={`relative flex flex-col md:flex-row items-center gap-4 md:gap-8 ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
+                >
+                  {/* Content Card */}
+                  <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                    <div className="bg-card p-6 rounded-xl border border-border inline-block w-full md:max-w-sm">
+                      <span className="inline-block bg-muted text-muted-foreground px-3 py-1 rounded-full text-xs font-medium mb-3">
+                        {item.quarter}
+                      </span>
+                      <h3 className="text-foreground font-semibold text-xl mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Timeline Node */}
+                  <div className="relative z-10 w-14 h-14 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-lg">
+                    <item.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+
+                  {/* Empty space for alignment */}
+                  <div className="flex-1 hidden md:block" />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -188,6 +267,23 @@ const WaitlistLanding = () => {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full bg-muted text-foreground placeholder:text-muted-foreground rounded-lg px-4 py-3.5 outline-none focus:ring-2 focus:ring-foreground/20"
               />
+            </div>
+
+            {/* Email Input */}
+            <div>
+              <label className="block text-muted-foreground text-sm mb-2">
+                Email Address
+              </label>
+              <div className="flex items-center bg-muted rounded-lg px-4 py-3.5">
+                <Mail className="w-5 h-5 text-muted-foreground mr-3" />
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
+                />
+              </div>
             </div>
 
             {/* Phone Input */}
@@ -222,10 +318,30 @@ const WaitlistLanding = () => {
               />
             </div>
 
+            {/* User Type Select */}
+            <div>
+              <label className="block text-muted-foreground text-sm mb-2">
+                You are a...
+              </label>
+              <Select
+                value={formData.userType}
+                onValueChange={(value) => setFormData({ ...formData, userType: value })}
+              >
+                <SelectTrigger className="w-full bg-muted border-0 text-foreground h-12 rounded-lg focus:ring-2 focus:ring-foreground/20">
+                  <SelectValue placeholder="Select your profile" />
+                </SelectTrigger>
+                <SelectContent className="bg-card border-border">
+                  <SelectItem value="client">Client</SelectItem>
+                  <SelectItem value="salon">Salon</SelectItem>
+                  <SelectItem value="independent">Indépendant</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={!formData.name || !formData.phone || !formData.city}
+              disabled={!formData.name || !formData.email || !formData.phone || !formData.city || !formData.userType}
               className="w-full bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg btn-press disabled:opacity-50 disabled:cursor-not-allowed mt-6"
             >
               Join Waitlist
@@ -243,7 +359,7 @@ const WaitlistLanding = () => {
         <div className="max-w-lg mx-auto flex flex-col items-center">
           <GlamroLogo className="w-10 h-10 text-foreground mb-4" />
           <p className="text-muted-foreground text-sm">
-            © 2024 Glamro. All rights reserved.
+            © 2026 Glamro. All rights reserved.
           </p>
         </div>
       </footer>

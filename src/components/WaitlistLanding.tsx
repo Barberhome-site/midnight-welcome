@@ -10,9 +10,11 @@ import {
   Users,
   Building2,
   Sparkles,
-  Mail
+  Mail,
+  Globe,
+  Lock,
+  ShoppingCart
 } from "lucide-react";
-import GlamroLogo from "./icons/GlamroLogo";
 import {
   Select,
   SelectContent,
@@ -20,6 +22,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Footer from "./Footer";
+import { s } from "node_modules/vite/dist/node/types.d-aGj9QkWt";
 
 const WaitlistLanding = () => {
   const [formData, setFormData] = useState({
@@ -39,58 +43,69 @@ const WaitlistLanding = () => {
     }
   };
 
+  const clearForm = () => {
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      city: "",
+      userType: ""
+    });
+    setIsSubmitted(false);
+  };
+
   const features = [
     {
+      icon: Sparkles,
+      title: "Un nouvo standard",
+      description: "Prenotare servizi beauty e wellness diventa immediato, come ordinare un ride o un delivery."
+    },
+    {
+      icon: Globe,
+      title: "Un ecosistema, non solo prenotazioni",
+      description: "Glamro connette professionisti, clienti e servizi in un’unica esperienza digitale."
+    },
+    {
       icon: MapPin,
-      title: "Trova Vicino",
-      description: "Scopri i migliori barbieri e saloni nella tua zona all'istante"
+      title: "La bellezza si muove con te",
+      description: "A casa, in hotel, in ufficio. Il beauty non è più legato a un luogo."
     },
     {
-      icon: Calendar,
-      title: "Prenota Subito",
-      description: "Prenota appuntamenti in pochi secondi, senza telefonate"
-    },
-    {
-      icon: Clock,
-      title: "Risparmia Tempo",
-      description: "Niente più code, arrivi all'orario prenotato"
-    },
-    {
-      icon: Star,
-      title: "Recensioni Verificate",
-      description: "Valutazioni reali da clienti reali per aiutarti a scegliere"
+      icon: Lock,
+      title: "Professionisti selezionati e pagamenti digitalizzati",
+      description: "Qualità, sicurezza, tracciabilità e fiducia al centro di tutto."
     }
   ];
 
   const roadmapItems = [
     {
-      quarter: "Q1 2026",
+      quarter: "15 Marzo 2026",
       title: "Lancio Beta Privata",
-      description: "Accesso anticipato per i membri della lista d'attesa nelle città selezionate",
+      description: "Accesso anticipato per i primi membri della waiting list nelle Marche e in Puglia",
       icon: Rocket,
       status: "upcoming"
     },
     {
-      quarter: "Q2 2026",
-      title: "Lancio Pubblico",
-      description: "Accesso aperto per clienti e professionisti in tutta Italia",
+      quarter: "1 Maggio 2026",
+      title: "Lancio Ufficiale",
+      description: "App disponibile su App Store e Google Play in tutta Italia",
       icon: Users,
       status: "planned"
     },
     {
-      quarter: "Q3 2026",
-      title: "Espansione Partner",
-      description: "Integrazione di saloni, barbieri e professionisti della bellezza",
-      icon: Building2,
+      quarter: "Settembre 2026",
+      title: "Apertura e-commerce Glamro",
+      description: "Merchandising, prodotti beauty professionali e ottimizzazione della piattaforma",
+      icon: ShoppingCart,
       status: "planned"
     },
-    {
+    /*{
       quarter: "Q4 2026",
       title: "Funzionalità Premium",
       description: "Prenotazioni avanzate, premi fedeltà e raccomandazioni AI",
       icon: Sparkles,
       status: "planned"
-    }
+    }*/
   ];
 
   const scrollToForm = () => {
@@ -110,7 +125,12 @@ const WaitlistLanding = () => {
           <p className="text-muted-foreground mb-8">
             Ti avviseremo non appena Glamro sarà disponibile a {formData.city}.
           </p>
-          <GlamroLogo className="w-16 h-16 text-muted-foreground opacity-50" />
+          <button
+            onClick={clearForm}
+            className="bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-lg btn-press text-lg"
+          >
+            Torna alla lista
+          </button>
         </div>
       </div>
     );
@@ -121,22 +141,22 @@ const WaitlistLanding = () => {
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 py-16 relative">
         <div className="w-full max-w-lg flex flex-col items-center text-center">
-          <GlamroLogo className="w-24 h-24 text-foreground mb-8 animate-fade-in" />
+          <img className={"w-1/2 text-foreground mb-8 animate-fade-in"} alt="Glamro Logo" src={"assets/image/logo.png"}/>
           
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight animate-fade-in">
-            Il Tuo Taglio Perfetto,<br />Ad Un Solo Tap
+            La tua bellezza,<br />ad un solo tap
           </h1>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-md animate-fade-in">
-            Il modo più intelligente per prenotare barbieri e parrucchieri.
-            Trova, prenota e paga — tutto dal tuo telefono.
+            Il mondo del beauty & wellness sta cambiando.
+            Unisciti anche tu alla rivoluzione iscrivendoti alla waiting list.
           </p>
 
           <button
             onClick={scrollToForm}
             className="bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-lg btn-press text-lg animate-fade-in"
           >
-            Unisciti alla lista d'attesa
+            Unisciti alla waiting list
           </button>
 
           <p className="text-muted-foreground text-sm mt-4 animate-fade-in">
@@ -155,7 +175,7 @@ const WaitlistLanding = () => {
 
       {/* Features Section */}
       <section className="px-6 py-20 bg-card">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl font-bold text-foreground text-center mb-4">
             Perché Glamro?
           </h2>
@@ -183,6 +203,25 @@ const WaitlistLanding = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            La nostra visione
+          </h2>
+          <p className="text-muted-foreground mb-8 max-w-lg mx-auto text-justify">
+            Glamro nasce per cambiare il modo in cui vivi la cura di te.<br />
+            Niente più attese, telefonate o stress.<br />
+            Scopri, prenota e vivi i migliori servizi beauty e wellness nella tua città, in pochi secondi.<br />
+            <br />
+            Il mondo del beauty & wellness è rimasto fermo per troppo tempo:<br />
+            appuntamenti persi, telefonate infinite, attese e poca trasparenza.<br />
+            <br />
+            Glamro nasce per ribaltare tutto questo.<br />
+            Vogliamo portare la bellezza nella vita reale delle persone: semplice, veloce, accessibile.<br />
+            <br />
+            Un ecosistema che connette persone e professionisti in modo intelligente.<br />
+            La tua bellezza, finalmente, a un solo tap.
+          </p>
         </div>
       </section>
 
@@ -297,6 +336,7 @@ const WaitlistLanding = () => {
                 <input
                   type="tel"
                   placeholder="Numero di cellulare"
+                  pattern="[0-9]{10}"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
@@ -344,7 +384,7 @@ const WaitlistLanding = () => {
               disabled={!formData.name || !formData.email || !formData.phone || !formData.city || !formData.userType}
               className="w-full bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg btn-press disabled:opacity-50 disabled:cursor-not-allowed mt-6"
             >
-              Unisciti alla lista d'attesa
+              Unisciti alla waiting list
             </button>
           </form>
 
@@ -355,14 +395,7 @@ const WaitlistLanding = () => {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 py-8 bg-background border-t border-border">
-        <div className="max-w-lg mx-auto flex flex-col items-center">
-          <GlamroLogo className="w-10 h-10 text-foreground mb-4" />
-          <p className="text-muted-foreground text-sm">
-            © 2026 Glamro. Tutti i diritti riservati.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -53,10 +53,7 @@ const WaitlistLanding = () => {
 
       const data = await response.json();
 
-      if (response.ok) {
-        alert("Grazie! Ti sei unito alla waiting list.");
-        // Optional: Clear form after success
-      } else {
+      if (!response.ok) {
         // Show the error message we set up in the Node.js API
         alert(data.message || "Si è verificato un errore.");
       }

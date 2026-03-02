@@ -17,12 +17,6 @@ const Footer = () => {
             <a href="/documents/Regolamento_piattaforma.pdf" className="text-muted-foreground text-sm hover:underline mx-2">
               Regolamento
             </a>
-            <a href="/documents/Policy_Reclami.pdf" className="text-muted-foreground text-sm hover:underline mx-2">
-              Reclami
-            </a>
-            <a href="/documents/Informativa_trattamento_dati.pdf" className="text-muted-foreground text-sm hover:underline mx-2">
-              Disclaimer igene
-            </a>
           </div>
           <p className="text-muted-foreground text-sm">
             © 2026 Glamro. Tutti i diritti riservati.

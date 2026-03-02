@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { 
-  MapPin, 
-  Clock, 
-  Star, 
-  Calendar,
+  MapPin,
   CheckCircle,
   ChevronDown,
   Rocket,
   Users,
-  Building2,
   Sparkles,
   Mail,
   Globe,
@@ -22,8 +18,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import StatusPopup from "./ui/status-popup";
 import Footer from "./Footer";
-import { set } from "date-fns";
 
 const WaitlistLanding = () => {
   const [formData, setFormData] = useState({
@@ -37,6 +33,8 @@ const WaitlistLanding = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const [status, setStatus] = useState({ message: null, type: null });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,17 +51,16 @@ const WaitlistLanding = () => {
 
       const data = await response.json();
 
-      if (!response.ok) {
+      if (response.ok) {
+        setIsLoading(false);
+        setIsSubmitted(true);
+      } else {
         // Show the error message we set up in the Node.js API
-        alert(data.message || "Si è verificato un errore.");
+        setStatus({ message: data.message || "Si è verificato un errore.", type: "error" });
       }
     } catch (error) {
       console.error("Connection error:", error);
-      alert("Errore di connessione. Controlla la tua rete.");
-    } finally {
-      // 2. Stop loading (this runs whether it succeeded or failed)
-      setIsLoading(false);
-      setIsSubmitted(true);
+      setStatus({ message: "Errore di connessione. Controlla la tua rete.", type: "error" });
     }
   };
 

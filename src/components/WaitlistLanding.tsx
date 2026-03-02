@@ -49,7 +49,6 @@ const WaitlistLanding = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setIsLoading(false);
         setIsSubmitted(true);
       } else {
         // Show the error message we set up in the Node.js API
@@ -58,6 +57,8 @@ const WaitlistLanding = () => {
     } catch (error) {
       console.error("Connection error:", error);
       alert("Errore di connessione. Controlla la tua rete.");
+    } finally {
+      setIsLoading(false);
     }
   };
 

@@ -18,7 +18,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import StatusPopup from "./ui/status-popup";
 import Footer from "./Footer";
 
 const WaitlistLanding = () => {
@@ -33,8 +32,6 @@ const WaitlistLanding = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
-
-  const [status, setStatus] = useState({ message: null, type: null });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,11 +53,11 @@ const WaitlistLanding = () => {
         setIsSubmitted(true);
       } else {
         // Show the error message we set up in the Node.js API
-        setStatus({ message: data.message || "Si è verificato un errore.", type: "error" });
+        alert(data.message || "Si è verificato un errore.");
       }
     } catch (error) {
       console.error("Connection error:", error);
-      setStatus({ message: "Errore di connessione. Controlla la tua rete.", type: "error" });
+      alert("Errore di connessione. Controlla la tua rete.");
     }
   };
 

@@ -44,6 +44,7 @@ export default async function handler(req, res) {
     // Detailed error logging for Vercel
     const errorMessage = error.response?.body?.message || "Errore durante l'iscrizione";
     console.error("Brevo API Error:", errorMessage);
+    console.error("Full Error Object:", error);
     
     return res.status(400).json({ message: errorMessage });
   }

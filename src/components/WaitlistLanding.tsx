@@ -163,8 +163,8 @@ const WaitlistLanding = () => {
         <div className="w-full max-w-lg flex flex-col items-center text-center">
           <img className={"w-1/2 text-foreground mb-8 animate-fade-in"} alt="Glamro Logo" src={"assets/image/logo.png"}/>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight animate-fade-in">
-            La tua bellezza,<br />ad un solo tap
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight animate-fade-in capitalize">
+            Il beauty delivery,<br />ad un solo tap
           </h1>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-md animate-fade-in">

@@ -364,7 +364,6 @@ const WaitlistLanding = () => {
                 <input
                   type="email"
                   placeholder="tua@email.com"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground outline-none"

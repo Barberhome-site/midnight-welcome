@@ -77,7 +77,7 @@ const WaitlistLanding = () => {
   const features = [
     {
       icon: Sparkles,
-      title: "Un nouvo standard",
+      title: "Un nuovo standard",
       description: "Prenotare servizi beauty e wellness diventa immediato, come ordinare un ride o un delivery."
     },
     {
@@ -234,8 +234,7 @@ const WaitlistLanding = () => {
             Scopri, prenota e vivi il tuo salone digitale senza confini direttamente a casa tua.<br />
             <br />
             Al giorno d’oggi tutti i settori si sono digitalizzati.<br />
-            Il mondo del beauty è rimasto fermo per troppo tempo, ma adesso le cose stanno
-            cambiando.<br />
+            Il mondo del beauty, in confronto, è rimasto fermo per troppo tempo.<br />
             Glamro nasce per camabiare le regole del gioco.<br />
             <br />
             Porteremo il beauty delivery nella vita reale:<br />

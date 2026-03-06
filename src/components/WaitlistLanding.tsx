@@ -163,8 +163,8 @@ const WaitlistLanding = () => {
         <div className="w-full max-w-lg flex flex-col items-center text-center">
           <img className={"w-1/2 text-foreground mb-8 animate-fade-in"} alt="Glamro Logo" src={"assets/image/logo.png"}/>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight animate-fade-in capitalize">
-            Il beauty delivery,<br />ad un solo tap
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight animate-fade-in">
+            IL BEAUTY DELIVERY,<br />ad un solo tap
           </h1>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-md animate-fade-in">
@@ -235,7 +235,7 @@ const WaitlistLanding = () => {
             <br />
             Al giorno d’oggi tutti i settori si sono digitalizzati.<br />
             Il mondo del beauty, in confronto, è rimasto fermo per troppo tempo.<br />
-            Glamro nasce per camabiare le regole del gioco.<br />
+            Glamro nasce per cambiare le regole del gioco.<br />
             <br />
             Porteremo il beauty delivery nella vita reale:<br />
             semplice, veloce, accessibile.<br />

@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { 
-  MapPin, 
-  Clock, 
-  Star, 
-  Calendar,
+  MapPin,
   CheckCircle,
   ChevronDown,
   Rocket,
   Users,
-  Building2,
   Sparkles,
   Mail,
   Globe,
@@ -23,11 +19,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Footer from "./Footer";
-import { s } from "node_modules/vite/dist/node/types.d-aGj9QkWt";
 
 const WaitlistLanding = () => {
   const [formData, setFormData] = useState({
     name: "",
+    surname: "",
     email: "",
     phone: "",
     city: "",
@@ -35,17 +31,41 @@ const WaitlistLanding = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.phone && formData.city && formData.userType) {
-      console.log("Waitlist signup:", formData);
-      setIsSubmitted(true);
+    
+    // 1. Start loading
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        // Show the error message we set up in the Node.js API
+        alert(data.message || "Si è verificato un errore.");
+      }
+    } catch (error) {
+      console.error("Connection error:", error);
+      alert("Errore di connessione. Controlla la tua rete.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const clearForm = () => {
     setFormData({
       name: "",
+      surname: "",
       email: "",
       phone: "",
       city: "",
@@ -57,7 +77,7 @@ const WaitlistLanding = () => {
   const features = [
     {
       icon: Sparkles,
-      title: "Un nouvo standard",
+      title: "Un nuovo standard",
       description: "Prenotare servizi beauty e wellness diventa immediato, come ordinare un ride o un delivery."
     },
     {
@@ -67,12 +87,12 @@ const WaitlistLanding = () => {
     },
     {
       icon: MapPin,
-      title: "La bellezza si muove con te",
+      title: "Il tuo salone digitale sempre con te",
       description: "A casa, in hotel, in ufficio. Il beauty non è più legato a un luogo."
     },
     {
       icon: Lock,
-      title: "Professionisti selezionati e pagamenti digitalizzati",
+      title: "Professionisti certificati e pagamenti digitalizzati",
       description: "Qualità, sicurezza, tracciabilità e fiducia al centro di tutto."
     }
   ];
@@ -81,7 +101,7 @@ const WaitlistLanding = () => {
     {
       quarter: "15 Marzo 2026",
       title: "Lancio Beta Privata",
-      description: "Accesso anticipato per i primi membri della waiting list nelle Marche e in Puglia",
+      description: "Accesso anticipato ai primi membri della waiting list",
       icon: Rocket,
       status: "upcoming"
     },
@@ -144,7 +164,7 @@ const WaitlistLanding = () => {
           <img className={"w-1/2 text-foreground mb-8 animate-fade-in"} alt="Glamro Logo" src={"assets/image/logo.png"}/>
           
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight animate-fade-in">
-            La tua bellezza,<br />ad un solo tap
+            IL BEAUTY DELIVERY,<br />ad un solo tap
           </h1>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-md animate-fade-in">
@@ -237,7 +257,7 @@ const WaitlistLanding = () => {
               Cosa arriverà nel 2026
             </h2>
             <p className="text-muted-foreground max-w-md mx-auto">
-              Unisciti a noi nel rivoluzionare l'industria della bellezza
+              Unisciti alla rivoluzione del beauty
             </p>
           </div>
 
@@ -298,13 +318,27 @@ const WaitlistLanding = () => {
             {/* Name Input */}
             <div>
               <label className="block text-muted-foreground text-sm mb-2">
-                Nome Completo
+                Nome
               </label>
               <input
                 type="text"
                 placeholder="Il tuo nome"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full bg-muted text-foreground placeholder:text-muted-foreground rounded-lg px-4 py-3.5 outline-none focus:ring-2 focus:ring-foreground/20"
+              />
+            </div>
+
+            {/* Surname Input */}
+            <div>
+              <label className="block text-muted-foreground text-sm mb-2">
+                Cognome
+              </label>
+              <input
+                type="text"
+                placeholder="Il tuo cognome"
+                value={formData.surname}
+                onChange={(e) => setFormData({ ...formData, surname: e.target.value })}
                 className="w-full bg-muted text-foreground placeholder:text-muted-foreground rounded-lg px-4 py-3.5 outline-none focus:ring-2 focus:ring-foreground/20"
               />
             </div>
@@ -373,8 +407,8 @@ const WaitlistLanding = () => {
                 </SelectTrigger>
                 <SelectContent className="bg-card border-border">
                   <SelectItem value="client">Cliente</SelectItem>
-                  <SelectItem value="independent">Indipendente</SelectItem>
-                  <SelectItem value="salon">Salone</SelectItem>
+                  <SelectItem value="independent">Libero professionista</SelectItem>
+                  <SelectItem value="salon">Salone/centro</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -382,10 +416,24 @@ const WaitlistLanding = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={!formData.name || !formData.email || !formData.phone || !formData.city || !formData.userType}
-              className="w-full bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg btn-press disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+              // Disable if loading OR if required fields are empty
+              disabled={isLoading || !formData.name || !formData.email || !formData.phone || !formData.city || !formData.userType}
+              className={`w-full font-semibold py-3.5 rounded-lg btn-press transition-all flex items-center justify-center
+                ${isLoading ? 'bg-primary/70 cursor-not-allowed' : 'bg-primary text-primary-foreground'}
+                disabled:opacity-50 mt-6`}
             >
-              Unisciti alla waiting list
+              {isLoading ? (
+                <>
+                  {/* Simple SVG Spinner */}
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Inviando...
+                </>
+              ) : (
+                "Unisciti alla waiting list"
+              )}
             </button>
           </form>
 

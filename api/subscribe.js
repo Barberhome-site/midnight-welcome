@@ -16,7 +16,8 @@ export default async function handler(req, res) {
   // 2. Phone Cleaning for Italian Numbers
   let cleanPhone = phone.replace(/\D/g, ''); 
   if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
-  if (!cleanPhone.startsWith('39')) cleanPhone = '39' + cleanPhone;
+
+  cleanPhone = `39${cleanPhone}`; // Prepend country code for Italy
 
   // 3. Initialize the New BrevoClient
   const client = new BrevoClient({

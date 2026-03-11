@@ -209,17 +209,18 @@ const WaitlistLanding = () => {
             La nostra visione
           </h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto text-justify">
-            Glamro nasce per cambiare il modo in cui vivi la cura di te.<br />
+            Glamro rivoluzionerà il modo in cui ti prendi cura di te.<br />
             Niente più attese, telefonate o stress.<br />
-            Scopri, prenota e vivi i migliori servizi beauty e wellness nella tua città, in pochi secondi.<br />
+            Scopri e prenota i migliori servizi beauty e wellness direttamente a casa tua, in pochi secondi.<br />
             <br />
-            Il mondo del beauty & wellness è rimasto fermo per troppo tempo:<br />
-            appuntamenti persi, telefonate infinite, attese e poca trasparenza.<br />
+            Oggi quasi tutti i settori si sono digitalizzati.<br />
+            Il mondo del beauty, invece, è rimasto fermo troppo a lungo.<br />
             <br />
-            Glamro nasce per ribaltare tutto questo.<br />
-            Vogliamo portare la bellezza nella vita reale delle persone: semplice, veloce, accessibile.<br />
+            Glamro arriva per cambiare le regole del gioco.<br />
             <br />
-            Un ecosistema che connette persone e professionisti in modo intelligente.<br />
+            Portiamo il beauty delivery nella vita reale: semplice, veloce e accessibile.<br />
+            Grazie a professionisti certificati e pagamenti digitali, accedere ai servizi beauty non è mai stato così facile.<br />
+            <br />
             La tua bellezza, finalmente, a un solo tap.
           </p>
         </div>

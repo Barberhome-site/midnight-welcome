@@ -99,7 +99,7 @@ const WaitlistLanding = () => {
 
   const roadmapItems = [
     {
-      quarter: "15 Marzo 2026",
+      quarter: "1 Aprile 2026",
       title: "Lancio Beta Privata",
       description: "Accesso anticipato ai primi membri della waiting list",
       icon: Rocket,
@@ -164,7 +164,7 @@ const WaitlistLanding = () => {
           <img className={"w-1/2 text-foreground mb-8 animate-fade-in"} alt="Glamro Logo" src={"assets/image/logo.png"}/>
           
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight animate-fade-in">
-            IL BEAUTY DELIVERY,<br />ad un solo tap
+            Il Beauty Delivery,<br />ad un solo tap
           </h1>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-md animate-fade-in">

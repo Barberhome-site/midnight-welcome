@@ -106,14 +106,14 @@ const WaitlistLanding = () => {
       status: "upcoming"
     },
     {
-      quarter: "1 Maggio 2026",
+      quarter: "Maggio 2026",
       title: "Lancio Ufficiale",
       description: "App disponibile su App Store e Google Play in tutta Italia",
       icon: Users,
       status: "planned"
     },
     {
-      quarter: "Settembre 2026",
+      quarter: "Prossimamente",
       title: "Apertura e-commerce Glamro",
       description: "Merchandising, prodotti beauty professionali e ottimizzazione della piattaforma",
       icon: ShoppingCart,

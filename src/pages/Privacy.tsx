@@ -1,7 +1,11 @@
 import Footer from "@/components/Footer";
 import { ArrowLeftFromLine } from "lucide-react";
+import { useEffect } from "react";
 
 const Privacy = () => {
+    useEffect(() => {
+        document.title = "Privacy Policy - GLAMRO";
+    }, []);
     return (
         <div className="min-h-screen bg-background">
             <nav className="w-full bg-background text-white py-4 px-6 flex items-center">
@@ -12,7 +16,7 @@ const Privacy = () => {
 
             </nav>
             <section className="min-h-screen flex flex-col justify-center items-left py-16 relative mx-auto w-5/6 md:w-3/4 lg:w-1/2">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center">Informativa sul trattamento dei dati</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center">Privacy Policy</h1>
                     <div className="rounded-lg p-8 shadow-lg mb-3">
                         <h2 className="text-3xl font-semibold mb-2">1. Categorie di dati trattati</h2>
                         <ul className="list-disc list-inside text-md md:text-lg">
